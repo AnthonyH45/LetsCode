@@ -5,8 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SignIn from './pages/SignIn/SignIn.js';
 import SignUp from './pages/SignUp/SignUp.js';
 import Landing from './pages/Landing/Landing.js';
-
-import GuessOutput from './components/GuessOutput/GuessOutput.js';
+import GuessProb from './pages/Problems/GuessOutput/GuessProb.js';
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
           </Route>
 
           <Route path='/demoproblem'>
-            <GuessOutput/>
+            <GuessProb/>
           </Route>
 
           <Route path='/'>
