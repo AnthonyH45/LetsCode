@@ -54,8 +54,9 @@ export default function SignIn() {
   const classes = useStyles();
 
   return (
+      <>
+      <Navbar/>
       <Container component="main" maxWidth="xs">
-        <Navbar/>
       <CssBaseline />
       <div className={classes.paper}>
             <img src={logo} alt="LetsCode logo" width={200}/>
@@ -116,5 +117,6 @@ export default function SignIn() {
         <Copyright />
       </Box>
     </Container>
+    </>
   );
 }

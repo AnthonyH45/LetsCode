@@ -21,10 +21,10 @@ function App() {
           <Route path="/signup">
             <SignUp/>
           </Route>
-          <Route path='/landing'>
+          <Route path='/'>
             <Landing/>
           </Route>
-          <Route path='/'>
+          <Route path='/demoproblem'>
             {/* <h1>landing page</h1> */}
             {/* <Description/> */}
             <GuessOutput/>

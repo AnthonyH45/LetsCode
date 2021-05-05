@@ -43,16 +43,15 @@ export default function GuessOutput() {
         title: "For Loops",
         desc: "Now flex your skills by guessing the output of the following code!",
         lessonLink: "https://link.to.the.lesson.plan",
-        question: "a\n\
-        b",
-        //     def printA(num):
-        //         for i in range(0,num):
-        //             print('A')
+        question:`
+            def printA(num):
+                for i in range(0,num):
+                    print('A')
                 
-        //         print('A' * num)
+                print('A' * num)
             
-        //     printA(3)
-        // `,
+            printA(3)
+        `,
         options: [
             "A\nA\nA",
             "B\nB\nB",

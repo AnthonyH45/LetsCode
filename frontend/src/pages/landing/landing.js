@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,6 +12,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+
+import golang from './../../assets/golang_logo.png';
+import logo from './../../assets/white_logo.svg';
 
 function Copyright() {
   return (
@@ -59,7 +61,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3];
+// const cards = [1, 2, 3];
+
 
 export default function Landing() {
   const classes = useStyles();
@@ -69,10 +72,10 @@ export default function Landing() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
-          </Typography>
+        <img src={logo} alt="thisisanicon"/>
+        <Typography variant="h6" color="inherit" noWrap>
+          LetsCode
+        </Typography>
         </Toolbar>
       </AppBar>
       <main>
@@ -83,17 +86,17 @@ export default function Landing() {
                 Ever want to learn how to code?
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Start learning with LetsCode
+              Start learning with LetsCode!
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
+                  <Button variant="contained" color="primary" href="/signin">
                     Sign In
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary">
+                  <Button variant="outlined" color="primary" href="/signup">
                     Sign Up
                   </Button>
                 </Grid>
@@ -104,8 +107,84 @@ export default function Landing() {
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            <Grid item key={0} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Python
+                    </Typography>
+                    <Typography>
+                      Ssss not the ssssnake.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      Learn
+                    </Button>
+                    {/* <Button size="small" color="primary">
+                      Edit
+                    </Button> */}
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item key={1} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    src="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      C++ (Coming soon)
+                    </Typography>
+                    <Typography>
+                      Need to add 1 to an integer value? ++ has your back. 
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      Learn
+                    </Button>
+                    {/* <Button size="small" color="primary">
+                      Edit
+                    </Button> */}
+                  </CardActions>
+                </Card>
+              </Grid>
+              <Grid item key={2} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={golang}
+                    title="Go Logo"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Go (Coming soon)
+                    </Typography>
+                    <Typography>
+                      Blue gopher.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      Learn
+                    </Button>
+                    {/* <Button size="small" color="primary">
+                      Edit
+                    </Button> */}
+                  </CardActions>
+                </Card>
+              </Grid>
+
+            {/* {cards.map((card) => (
+              <Grid item key={1} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -124,13 +203,13 @@ export default function Landing() {
                     <Button size="small" color="primary">
                       Learn
                     </Button>
-                    {/* <Button size="small" color="primary">
+                    <Button size="small" color="primary">
                       Edit
-                    </Button> */}
+                    </Button>
                   </CardActions>
                 </Card>
               </Grid>
-            ))}
+            ))} */}
           </Grid>
         </Container>
       </main>
@@ -139,7 +218,7 @@ export default function Landing() {
         <Typography variant="h6" align="center" gutterBottom>
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Let's learn, let's have fun, LetsCode!
+          Let's learn, Let's have fun, LetsCode!
         </Typography>
         <Copyright />
       </footer>

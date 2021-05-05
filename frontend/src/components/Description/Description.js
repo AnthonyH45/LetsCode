@@ -45,7 +45,7 @@ export default function Description() {
     const classes = useStyles();
 
     return (
-        <Container id="description">
+        <Box id="description" component="span" m={1}>
             <Card className={classes.root}>
                 <CardContent className={classes.title}>
                     <Box align="left" alignItems="left" justifyContent="left">
@@ -58,7 +58,7 @@ export default function Description() {
                     </CardActions>
                 </CardContent>
             </Card>
-        </Container>
+        </Box>
     );
 }
 
