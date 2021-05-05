@@ -1,10 +1,10 @@
 import React from 'react';
 import { 
-    Avatar,
+    // Avatar,
     Button,
     CssBaseline,
     TextField,
-    FormControl,
+    // FormControl,
     Checkbox,
     FormControlLabel,
     Link,
@@ -13,22 +13,11 @@ import {
     Typography,
     Container
 } from '@material-ui/core';
-import Navbar from '../../components/Navbar/navbar.js';
+import Navbar from '../../components/Navbar/Navbar.js';
 import { makeStyles } from '@material-ui/core/styles';
-import logo from './../../assets/icon.svg';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        LetsCode
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import logo from './../../assets/icon.svg';
+import Copyright from '../../components/Copyright/Copyright.js';
 
 const useStyles = makeStyles((theme) => ({
   paper: {

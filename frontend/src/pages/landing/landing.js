@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -11,23 +12,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 
 import golang from './../../assets/golang_logo.png';
 import logo from './../../assets/white_logo.svg';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        LetsCode
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Copyright from '../../components/Copyright/Copyright.js';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -63,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
 
 // const cards = [1, 2, 3];
 
-
 export default function Landing() {
   const classes = useStyles();
 
@@ -72,10 +59,10 @@ export default function Landing() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-        <img src={logo} alt="thisisanicon"/>
-        <Typography variant="h6" color="inherit" noWrap>
-          LetsCode
-        </Typography>
+          <img src={logo} alt="thisisanicon"/>
+          <Typography variant="h6" color="inherit" noWrap>
+            LetsCode
+          </Typography>
         </Toolbar>
       </AppBar>
       <main>
@@ -91,14 +78,18 @@ export default function Landing() {
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary" href="/signin">
-                    Sign In
-                  </Button>
+                  <Link to='/signin'>
+                    <Button variant="contained" color="primary" href="/signin">
+                      Sign In
+                    </Button>
+                  </Link>
                 </Grid>
                 <Grid item>
-                  <Button variant="outlined" color="primary" href="/signup">
-                    Sign Up
-                  </Button>
+                  <Link to='/signup'>
+                    <Button variant="outlined" color="primary" href="/signup">
+                      Sign Up
+                    </Button>
+                  </Link>
                 </Grid>
               </Grid>
             </div>
@@ -123,9 +114,11 @@ export default function Landing() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      Learn
-                    </Button>
+                    <Link to='/demoproblem'>
+                      <Button size="small" color="primary">
+                        Learn
+                      </Button>
+                    </Link>
                     {/* <Button size="small" color="primary">
                       Edit
                     </Button> */}
