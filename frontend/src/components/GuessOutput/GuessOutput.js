@@ -3,7 +3,8 @@ import {
     // Card, CardActions, CardContent,
     // Box,
     // Button,
-    Typography,
+    // Divider,
+    // Typography,
     Container,
     Grid,
     Paper
@@ -26,17 +27,8 @@ const useStyles = makeStyles((theme) => ({
     pos: {
         marginBottom: 12,
       },
-  }));
+}));
 
-/*
-    Description has a category, like `INTRODUCTION`
-    Has a title, like `For Loops`
-    And ofc a description, 
-    ```
-    Now let's see if you were paying attention!
-    What is the ouput of the following code?
-    ```
-*/
 export default function GuessOutput() {
     const Prob = {
         category: "INTRODUCTION",
@@ -52,6 +44,11 @@ export default function GuessOutput() {
             
             printA(3)
         `,
+        question1: "def printA(num):",
+        question2: "\t     for i in range(0,num):",
+        question3: "print('A')",
+        question4: "print('A' * num)",
+        question5: "printA(3)",
         options: [
             "A\nA\nA",
             "B\nB\nB",
@@ -64,30 +61,35 @@ export default function GuessOutput() {
 
     return (
         <Container id="GuessOutput">
-            <Paper elevation={3}>
+            {/* <Paper elevation={3}> */}
                 <Description/>
-                <br/>
-                <Grid container className={classes.root} spacing={2}>
+                
+                {/* <Divider/> */}
+
+                <Grid container className={classes.root} spacing={3}>
                     <Grid item xs={12}>
-                        <Grid container justify="center" spacing={2}>
+                        <Grid container justify="center" spacing={3}>
                             <Grid key={0} item>
                                 <Paper className={classes.paper}>
-                                    <Typography>
-                                        {Prob.question}
-                                    </Typography>
+                                    {/* <Typography> */}
+                                        {Prob.question1}
+                                        <br/>
+                                        {Prob.question2}
+                                    {/* </Typography> */}
                                 </Paper>
                             </Grid>
                             <Grid key={1} item>
                                 <Paper className={classes.paper}>
-                                    <Typography>
+                                    {/* <Typography> */}
                                         {Prob.options}
-                                    </Typography>
+                                    {/* </Typography> */}
                                 </Paper>
                             </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
-            </Paper>
+            
+            {/* </Paper> */}
         </Container>
     );
 }
