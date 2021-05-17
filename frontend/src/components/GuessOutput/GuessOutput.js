@@ -18,15 +18,38 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     paper: {
-      height: 250,
-      width: 250,
+        height: 500,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        whiteSpace:'pre-wrap'
     },
     control: {
       padding: theme.spacing(2),
     },
     pos: {
         marginBottom: 12,
-      },
+    },
+    options: {
+
+    },
+    option: {
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        backgroundColor: 'light-gray',
+        border: 'none',
+        cursor: 'pointer',
+        '&:hover': {
+            backgroundColor: 'gray',
+        },
+        '&:focus': {
+            backgroundColor: 'gray',
+        }
+    }
 }));
 
 export default function GuessOutput() {
@@ -42,47 +65,47 @@ export default function GuessOutput() {
                 
                 print('A' * num)
             
-            printA(3)
+            print(A)
         `,
-        question1: "def printA(num):",
-        question2: "\t     for i in range(0,num):",
-        question3: "print('A')",
-        question4: "print('A' * num)",
-        question5: "printA(3)",
         options: [
-            "A\nA\nA",
-            "B\nB\nB",
-            "C\nC\nC",
+            `A\nA\nA\n`,
+            `AA\nA\nA\n`,
+            `A\nA\nAAAA\n`,
         ],
         answer: 0, // index of options
-    }
+    };
+
+    const checkCorrect = (option) => {
+        return Prob.answer === option
+    };
 
     const classes = useStyles();
 
     return (
         <Container id="GuessOutput">
             {/* <Paper elevation={3}> */}
-                <Description/>
+                <Description
+                    category = {Prob.category}
+                    title = {Prob.title}
+                    desc = {Prob.desc}
+                    lessonLink = {Prob.lessonLink}
+                />
                 
                 {/* <Divider/> */}
 
                 <Grid container className={classes.root} spacing={3}>
                     <Grid item xs={12}>
                         <Grid container justify="center" spacing={3}>
-                            <Grid key={0} item>
+                            <Grid xs={6} key={0} item>
                                 <Paper className={classes.paper}>
-                                    {/* <Typography> */}
-                                        {Prob.question1}
-                                        <br/>
-                                        {Prob.question2}
-                                    {/* </Typography> */}
+                                        {Prob.question}
                                 </Paper>
                             </Grid>
-                            <Grid key={1} item>
-                                <Paper className={classes.paper}>
-                                    {/* <Typography> */}
-                                        {Prob.options}
-                                    {/* </Typography> */}
+                            <Grid xs={6} key={1} item>
+                                <Paper className={`${classes.paper}`}>
+                                        {Prob.options.map((option, i) => {
+                                            return (<><button className={classes.option} onClick={(e) => checkCorrect(i)}>{option}</button><br/></>)
+                                        })}
                                 </Paper>
                             </Grid>
                         </Grid>
