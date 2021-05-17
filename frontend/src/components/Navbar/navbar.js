@@ -10,7 +10,7 @@ import icon from '../../assets/icon.svg';
 
 const useStyles = makeStyles({
     nav: {
-      borderBottom: '1px solid grey',
+      boxShadow: '-1px 1px 3px rgba(1,1,1,0.5)',
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -18,16 +18,21 @@ const useStyles = makeStyles({
       width: '100%',
       position: 'fixed',
       top: '0',
-      padding: '10px 20px'
+      padding: '10px 50px',
     },
     item: {
         display: 'flex',
-        flexDirection: 'column',
-        alignSelf: 'center',
-        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',  
     },
     icon: {
         width: '100px'
+    },
+    link: {
+        textDecoration: 'none',
+        color: 'black',
+        
     }
 });
 
@@ -46,26 +51,26 @@ const Navbar = () => {
     };
     
     return (
-        <Box className={classes.nav}>
+        <Box className={`${classes.nav}`}>
             <Link to='/'>
                 <img src={icon} alt="thisisanicon" className={classes.icon}/>
             </Link>
 
-            <Link to='/demoproblem'>
-                <Box className={classes.item}>
-                    <Box component="span"><ComputerIcon/> Learn</Box>
+            <Link to='/demoproblem' className={classes.link}>
+                <Box>
+                    <Box component="span" className={`${classes.item}`}><ComputerIcon/> Learn</Box>
                 </Box>
             </Link>
 
-            <Link to='/coderacing'>
-                <Box className={classes.item}>
-                    <Box component="span"><CodeIcon/> Code Racing</Box>
+            <Link to='/coderacing' className={classes.link}>
+                <Box>
+                    <Box component="span" className={`${classes.item}`}><CodeIcon/> Code Racing</Box>
                 </Box>
             </Link>
 
-            <Link>
-                <Box className={classes.item}>
-                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+            <Link className={classes.link}>
+                <Box>
+                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} className={`${classes.link} ${classes.item}`}>
                     <PersonIcon/> Profile
                 </Button>
                 <Menu
@@ -74,19 +79,20 @@ const Navbar = () => {
                     keepMounted
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
+                    
                 >
                     <MenuItem onClick={handleClose}>
-                        <Link to='/demoproblem'>
+                        <Link to='/demoproblem' className={classes.link}>
                             My Lessons
                         </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                        <Link to='/signin'>
+                        <Link to='/signin'  className={classes.link}>
                             My Account
                         </Link>
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                        <Link to='/'>
+                    <MenuItem onClick={handleClose} >
+                        <Link to='/' className={classes.link}>
                             Logout
                         </Link>
                     </MenuItem>
