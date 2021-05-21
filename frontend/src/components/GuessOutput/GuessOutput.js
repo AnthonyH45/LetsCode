@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import {
-  // Card, CardActions, CardContent,
-  // Box,
   Button,
-  // Divider,
-  // Typography,
   Container,
   Grid,
   Paper
@@ -46,18 +42,45 @@ const useStyles = makeStyles(theme => ({
     },
     '&:focus': {
       backgroundColor: 'gray'
+    },
+    '&:disabled': {
+      backgroundColor: '#efefef',
+      color: 'black'
+    },
+    '&:disabled:hover': {
+      backgroundColor: '#efefef',
     }
+  },
+  correctOption: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    backgroundColor: 'rgba(77,194,116,0.8)',
+    border: 'none',
+    cursor: 'pointer',
+    '&:disabled': {
+      backgroundColor: 'rgba(77,194,116,0.8)'
+    },
+    '&:disabled:hover': {
+      backgroundColor: 'rgba(77,194,116,0.8)'
+    },
   },
   submit: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
+    '&:disabled': {
+      backgroundColor: 'rgba(77,194,116)'
+    },
     '&:hover': {
       backgroundColor: 'transparent'
     },
     '&:focus': {
       backgroundColor: 'transparent'
     }
+   
   },
   correct: {
     zIndex: 10,
@@ -74,16 +97,17 @@ const useStyles = makeStyles(theme => ({
     color: 'white'
   },
   nextQuestion: {
-    // position: 'sticky',
     marginTop: 30,
     float: 'right',
     display: 'flex',
     justifyContent: 'flex-end',
     alignSelf: 'flex-end',
-    color: 'white',
+    color: 'black',
     backgroundColor: 'rgba(77,194,116,0.8)',
+    fontWeight: 'bold',
     '&:hover': {
-      color: 'black'
+      backgroundColor: 'rgba(77,194,116)',
+      fontStyle: 'italic',
     },
   }
 }));
@@ -154,8 +178,9 @@ export default function GuessOutput() {
                     return (
                       <>
                         <button
-                          className={classes.option}
+                          className={`${classes.option} ${nextQuestion&&i===Prob.answer?classes.correctOption:null}`}
                           onClick={() => selectAnswer(i)}
+                          disabled={nextQuestion}
                           >
                           {option}
                         </button>
@@ -164,7 +189,7 @@ export default function GuessOutput() {
                     );
                   })}
                   {userAnswer !== null ? (
-                    <Button onClick={checkCorrect}>
+                    <Button onClick={checkCorrect} disabled={nextQuestion}>
                       <span className={`${classes.option} ${classes.submit}`}>
                         Submit
                       </span>
