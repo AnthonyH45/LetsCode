@@ -6,7 +6,7 @@ import SignIn from './pages/signin/signin.js';
 import SignUp from './pages/signup/signup.js';
 import Landing from './pages/landing/landing.js';
 import GuessProb from './pages/Problems/GuessOutput/GuessProb.js';
-
+import Lessons from './pages/Lesson/Lessons.js';
 function App() {
   return (
     // to add path, add <Route path='PATHNAME'> <COMPONENT/> </Route>
@@ -25,7 +25,9 @@ function App() {
           <Route path='/demoproblem'>
             <GuessProb/>
           </Route>
-
+          <Route path='/lessons'>
+            <Lessons/>
+          </Route>
           <Route path='/'>
             <Landing/>
           </Route>
