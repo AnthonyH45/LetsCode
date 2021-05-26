@@ -34,13 +34,14 @@ const useStyles = makeStyles({
     What is the ouput of the following code?
     ```
 */
-export default function Description() {
-    const pD = {
-        category: "INTRODUCTION",
-        title: "For Loops",
-        desc: "Now flex your skills by guessing the output of the following code!",
-        lessonLink: "https://link.to.the.lesson.plan",
-    }
+export default function Description(props) {
+    const {category, title, desc, lessonLink} = props;
+    // const pD = {
+    //     category: "INTRODUCTION",
+    //     title: "For Loops",
+    //     desc: "Now flex your skills by guessing the output of the following code!",
+    //     lessonLink: "https://link.to.the.lesson.plan",
+    // }
 
     const classes = useStyles();
 
@@ -49,9 +50,9 @@ export default function Description() {
             <Card className={classes.root}>
                 <CardContent className={classes.title}>
                     <Box align="left" alignItems="left" justifyContent="left">
-                        <Typography variant="h6" color="textSecondary" gutterBottom>{pD.category}</Typography>
-                        <Typography variant="h4">{pD.title}</Typography>
-                        <Typography>{pD.desc}</Typography>
+                        <Typography variant="h6" color="textSecondary" gutterBottom>{category}</Typography>
+                        <Typography variant="h4">{title}</Typography>
+                        <Typography>{desc}</Typography>
                     </Box>
                     <CardActions>
                         <Button size="small">Lesson Plan</Button>
