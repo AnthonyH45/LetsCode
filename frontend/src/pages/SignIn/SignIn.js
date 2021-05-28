@@ -13,7 +13,6 @@ import {
     Typography,
     Container
 } from '@material-ui/core';
-import Navbar from '../../components/Navbar/Navbar.js';
 import { makeStyles } from '@material-ui/core/styles';
 
 import logo from './../../assets/icon.svg';
@@ -44,11 +43,13 @@ export default function SignIn() {
 
   return (
       <>
-      <Navbar/>
       <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-            <img src={logo} alt="LetsCode logo" width={200}/>
+            {/* Why does <Link> not work here? */}
+        {/* <Link to="/" variant="body2"> */}
+          <a href="/"><img src={logo} alt="LetsCode logo" width={200}/></a>
+        {/* </Link> */}
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
@@ -90,14 +91,18 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+
+              <Link to='/' variant="body2">
                 Forgot password?
               </Link>
+
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+
+              <Link to='/signup'>
+                Don't have an account? Sign Up
               </Link>
+
             </Grid>
           </Grid>
         </form>

@@ -7,13 +7,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { Divider } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import golang from './../../assets/golang_logo.png';
 import logo from './../../assets/white_logo.svg';
 import Copyright from '../../components/Copyright/Copyright.js';
 
@@ -84,6 +84,7 @@ export default function Landing() {
                     </Button>
                   </Link>
                 </Grid>
+
                 <Grid item>
                   <Link to='/signup'>
                     <Button variant="outlined" color="primary" href="/signup">
@@ -92,6 +93,29 @@ export default function Landing() {
                   </Link>
                 </Grid>
               </Grid>
+
+              <br/>
+              <Divider />
+              <br/>
+
+              <Grid container spacing={2} justify="center">
+                <Grid item>
+                  <Link to='/guessoutput'>
+                    <Button variant="outlined" color="primary">
+                      Guess Output
+                    </Button>
+                  </Link>
+                </Grid>
+
+                <Grid item>
+                  <Link to='/fillin'>
+                    <Button variant="outlined" color="primary">
+                      Fill In
+                    </Button>
+                  </Link>
+                </Grid>
+              </Grid>
+
             </div>
           </Container>
         </div>
@@ -102,35 +126,49 @@ export default function Landing() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
+                    image="https://i.pinimg.com/originals/91/94/c9/9194c978fa63798b2e882e6fda5eb953.png"
+                    title="Python Logo"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Python
                     </Typography>
                     <Typography>
-                      Ssss not the ssssnake.
+                      Ssss not the ssssnake, but just as cool 😎
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Link to='/demoproblem'>
+                    <Link to='/lessonplan'>
                       <Button size="small" color="primary">
                         Learn
                       </Button>
                     </Link>
+
+                    <Link to='/guessoutput'>
+                      <Button size="small" color="primary">
+                        Guess Output
+                      </Button>
+                    </Link>
+
+                    <Link to='/fillin'>
+                      <Button size="small" color="primary">
+                        Fill In
+                      </Button>
+                    </Link>
+                    
                     {/* <Button size="small" color="primary">
                       Edit
                     </Button> */}
                   </CardActions>
                 </Card>
               </Grid>
+
               <Grid item key={1} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    src="https://source.unsplash.com/random"
-                    title="Image title"
+                    src="https://i.pinimg.com/736x/a2/dc/32/a2dc3249364449a49f01a6275d277b8c.jpg"
+                    title="C++ Logo"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -141,7 +179,7 @@ export default function Landing() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="primary" disabled="true">
                       Learn
                     </Button>
                     {/* <Button size="small" color="primary">
@@ -150,11 +188,12 @@ export default function Landing() {
                   </CardActions>
                 </Card>
               </Grid>
+
               <Grid item key={2} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image={golang}
+                    image="https://camo.githubusercontent.com/94761affed6454156a526a0fcab454ed4a432d9472087a9d330598a38ffe56cd/68747470733a2f2f7261772e6769746875622e636f6d2f676f6c616e672d73616d706c65732f676f706865722d766563746f722f6d61737465722f676f706865722e706e67"
                     title="Go Logo"
                   />
                   <CardContent className={classes.cardContent}>
@@ -166,7 +205,7 @@ export default function Landing() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="primary" disabled="true">
                       Learn
                     </Button>
                     {/* <Button size="small" color="primary">

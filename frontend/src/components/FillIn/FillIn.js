@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useDebugValue } from 'react';
 import {
   Button,
   Container,
   Grid,
-  Paper
+  Paper,
+  TextField
 } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core/styles';
@@ -119,36 +120,38 @@ export default function GuessOutput() {
   const [isUserCorrect, setIsUserCorrect] = useState(null);
   const [nextQuestion, setNextQuestion] = useState(null);
   const [level, setLevel] = useState(0);
+  const valRef = useRef('');
 
   const Prob = {
     category: 'INTRODUCTION',
-    title: 'For Loops',
-    desc: 'Now flex your skills by guessing the output of the following code!',
+    title: 'Arithmetic',
+    desc: 'Fill in the following code to enhance your code reading and debugging skillz',
     lessonLink: 'https://link.to.the.lesson.plan',
     questions: [`
-def printA(num):
-    for i in range(0,num):
-        print('A')
+def compute_sum(list_to_sum):
+    sum = 0
+    for i in list_to_sum:
+        sum ___ i
+    return sum
 
-print(3)
+compute_sum( [1,2,3] )
         `,`
-def printList(num):
-  print( [ i for i in range(0,num) ] )
+def print_num_list(num):
+  print( [ ___ for i in range(0,num) ] )
 
-printList(3)
+print_num_list(3) # prints [1,2,3]
         `,`
-def printVar(list_to_print):
-    for i in list_to_print:
-      print(i)
+def print_square(num):
+    print(num ___ ____)
 
-printVar( [1,"HELLO",3.14] )
+print_square(3) # prints 9
         `],
-    options: [
-      [`A\nA\nA\n`, `AA\nA\nA\n`, `A\nA\nAAAA\n`],
-      [`[1,3,5]\n`,`[3,2,1]\n`,`[1,2,3]\n`],
-      [`HELLO\n1\n3.14`,`1\nHELLO\n3.14`,`[1,"HELLO",3.14]\n`]
+    blanks: [
+        "sum ___ i",
+        "[ ___ for i in",
+        "print(num ___ ____)"
     ],
-    answers: [0,2,1] // index of options
+    answers: ["+=","i","**num"]
   };
   const correct = () => {
     new Audio("https://freesound.org/data/previews/99/99636_1163166-lq.mp3").play();
@@ -162,9 +165,9 @@ printVar( [1,"HELLO",3.14] )
     setUserAnswer(option);
   };
 
-  const checkCorrect = () => {
+  const checkCorrect = (userAnswer) => {
     console.log("useranswer:",userAnswer);
-    setIsUserCorrect(userAnswer === Prob.answers[level]);
+    // setIsUserCorrect(userAnswer === Prob.answers[level]);
     if (userAnswer === Prob.answers[level]) {
       correct();
       return true;
@@ -178,6 +181,14 @@ printVar( [1,"HELLO",3.14] )
     setIsUserCorrect(false);
     setUserAnswer(false);
     setNextQuestion(false);
+  }
+
+  const handleChange = (e) => {
+      return console.log(e.target.value);
+  }
+
+  const sendVal = () => {
+      console.log('submit')
   }
 
   const classes = useStyles();
@@ -206,7 +217,7 @@ printVar( [1,"HELLO",3.14] )
             <Grid container justify="center" spacing={3}>
               <Grid xs={6} key={0} item>
                 <Paper className={classes.paper}>
-                  <Highlight innerHTML={true}>{'<p>Question</p>'}</Highlight>
+                  <Highlight innerHTML={true}>{'<p>Fill in the correct code where the underscores are</p>'}</Highlight>
                   <Highlight language="python">
                     {Prob.questions[level]}
                   </Highlight>
@@ -215,28 +226,14 @@ printVar( [1,"HELLO",3.14] )
               <Grid xs={6} key={1} item>
 
                 <Paper className={`${classes.paper}`}>
-                  {Prob.options[level].map((option, i) => 
-                    (
-                      <Button
-                        className={`${classes.option} ${(nextQuestion && i === Prob.answers[level]) ? classes.correctOption : null}`}
-                        onClick={() => selectAnswer(i)}
-                        disabled={nextQuestion}
-                        variant="contained"
-                        color="primary"
-                        style={{maxWidth: '150px'}}
-                        >
-                        {option}
-                      </Button>
-                    )
-                  )}
-                  {userAnswer !== null ? (
-                    <Button onClick={checkCorrect} disabled={nextQuestion}>
+                  <TextField id='user-fillin' label={Prob.blanks[level]} variant="outlined" onChange={handleChange}/>
+                    <Button onClick={sendVal()} disabled={nextQuestion}>
                       <span className={`${classes.option} ${classes.submit}`}>
                         Submit
                       </span>
                     </Button>
-                  ) : <></> }
                 </Paper>
+
                   <Button className={classes.nextQuestion} style={{display: nextQuestion ? 'block' : 'none'}} onClick={() => nextLevel()}> Head onto the next question &gt; </Button>
               </Grid>
             </Grid>

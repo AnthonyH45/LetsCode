@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn/SignIn.js';
 import SignUp from './pages/SignUp/SignUp.js';
 import Landing from './pages/Landing/Landing.js';
 import GuessProb from './pages/Problems/GuessOutput/GuessProb.js';
+import FillIn from './pages/Problems/FillIn/FillIn.js'
 
 function App() {
   return (
@@ -22,8 +23,12 @@ function App() {
             <SignUp/>
           </Route>
 
-          <Route path='/demoproblem'>
+          <Route path='/guessoutput'>
             <GuessProb/>
+          </Route>
+
+          <Route path='/fillin'>
+            <FillIn/>
           </Route>
 
           <Route path='/'>

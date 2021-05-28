@@ -42,7 +42,11 @@ export default function SignUp() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <img src={logo} alt="LetsCode logo" width={200}/>
+        {/* Why does <Link> not work here? */}
+        {/* <Link to="/" variant="body2"> */}
+          <a href="/"><img src={logo} alt="LetsCode logo" width={200}/></a>
+        {/* </Link> */}
+
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
@@ -104,18 +108,23 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
+          
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+
+              <Link to="/signin">
                 Already have an account? Sign in
               </Link>
+
             </Grid>
           </Grid>
         </form>
       </div>
+
       <Box mt={5}>
         <Copyright />
       </Box>
+      
     </Container>
   );
 }
