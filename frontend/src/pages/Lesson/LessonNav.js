@@ -9,10 +9,13 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'space-between',
       backgroundColor: '#f9f9f9',
       alignItems: 'center',
-      padding: '5px 20px'
+      padding: '5px 20px',
+      bottom: '0'
   },
   chapter: {
       textTransform: 'uppercase',
+      fontStyle: 'italic',
+      fontWeight: 'bold',
   },
   button: {
       height: '100%'
