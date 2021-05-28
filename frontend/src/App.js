@@ -2,9 +2,9 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // import Navbar from './components/Navbar/Navbar.js';
-import SignIn from './pages/signin/signin.js';
-import SignUp from './pages/signup/signup.js';
-import Landing from './pages/landing/landing.js';
+import SignIn from './pages/SignIn/SignIn.js';
+import SignUp from './pages/SignUp/SignUp.js';
+import Landing from './pages/Landing/Landing.js';
 import GuessProb from './pages/Problems/GuessOutput/GuessProb.js';
 
 function App() {
