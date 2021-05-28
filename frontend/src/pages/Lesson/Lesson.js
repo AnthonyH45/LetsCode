@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 const Lesson = ({lesson}) => {
     const classes = useStyles();
-    
+    console.log(lesson)
     return (
         <Box className={classes.root}>
             <Box className={classes.lesson}>
@@ -38,12 +38,9 @@ const Lesson = ({lesson}) => {
                     }
                     return <p className={classes.description}>{e.text}</p>
                 })}
-                {/* <Code code={lesson.description}/>
-                <p className={classes.description}>{lesson.description}</p> */}
             </Box>
             <iframe frameborder="0" width="50%" height="500px" src="https://create.withcode.uk/embed/EsW"></iframe>            
         </Box>
-            // <iframe frameborder="0" width="50%" height="400px" src="https://create.withcode.uk/embed/EsW"><a target="_blank" href="https://create.withcode.uk/python/EsW">create.withcode.uk</a></iframe>            </Box>
     );
 }
 

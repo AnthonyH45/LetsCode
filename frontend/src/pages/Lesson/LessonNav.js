@@ -21,12 +21,15 @@ const useStyles = makeStyles(theme => ({
       height: '100%'
   }
 }));
-const LessonNav = () => {
+const LessonNav = (props) => {
+  const {nextLesson, prevLesson, index, numLessons} = props;
+  console.log(index,numLessons)
   const classes = useStyles();
   return (
     <Box className={classes.root}>
+      <Button className={classes.button} size="small" variant="contained" color="primary" style={{visibility: index > 0 ? 'visible' : 'hidden'}} onClick={()=>prevLesson()}>Back</Button>
       <p className={classes.chapter}>INTRODUCTION</p>
-      <Button className={classes.button} size="small" variant="contained" color="primary">Next</Button>
+     <Button className={classes.button} size="small" variant="contained" color="primary" style={{visibility: index < numLessons-1 ? 'visible' : 'hidden'}}  onClick={()=>nextLesson()}>Next</Button>
     </Box>
   );
 };
