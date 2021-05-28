@@ -37,7 +37,6 @@ const Lesson = ({lesson}) => {
                         return <Code code={e.text}/>
                     }
                     return <p className={classes.description}>{e.text}</p>
-
                 })}
                 {/* <Code code={lesson.description}/>
                 <p className={classes.description}>{lesson.description}</p> */}
