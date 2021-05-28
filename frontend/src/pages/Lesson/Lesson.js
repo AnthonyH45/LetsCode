@@ -10,9 +10,9 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center',
         justifyContent: 'space-around',
         margin: '20px',
-        width: '1700px'
+        width: '100%'
     },
-    lesson: {margin:'56px'},
+    lesson: { margin:'56px', marginRight: '100px'},
     chapter: {
         textTransform: 'uppercase',
     },

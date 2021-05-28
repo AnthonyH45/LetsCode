@@ -6,12 +6,11 @@ import { Box } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
     root: {
       backgroundColor: '#f2f2f2',
-      margin: '10px 0 0',
-    //   marginRight: '56px',
+      margin: '10px 0',
     //   margin: '56px 56px 0',
       padding: '26px',
       fontFamily: 'Courier New',
-      width: '800px',
+      width: '100%',
       whiteSpace: 'pre-wrap',
       display: 'inline-block',
       textAlign: 'justify',
