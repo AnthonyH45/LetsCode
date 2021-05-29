@@ -39,7 +39,7 @@ const Lesson = ({lesson}) => {
                     return <p className={classes.description}>{e.text}</p>
                 })}
             </Box>
-            <iframe frameborder="0" width="50%" height="500px" src="https://create.withcode.uk/embed/EsW"></iframe>            
+            <iframe title="embed-code" frameborder="0" width="50%" height="500px" src="https://create.withcode.uk/embed/EsW"></iframe>            
         </Box>
     );
 }
