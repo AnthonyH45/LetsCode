@@ -138,7 +138,7 @@ export default function Landing() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Link to='/lessonplan'>
+                    <Link to='/lessons'>
                       <Button size="small" color="primary">
                         Learn
                       </Button>
