@@ -19,6 +19,7 @@ const useStyles = makeStyles({
       position: 'fixed',
       top: '0',
       padding: '10px 50px',
+      backgroundColor: 'white'
     },
     item: {
         display: 'flex',

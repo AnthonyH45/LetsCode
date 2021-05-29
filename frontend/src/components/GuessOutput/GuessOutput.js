@@ -114,7 +114,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function GuessOutput() {
+export default function GuessOutput({prob}) {
   const [userAnswer, setUserAnswer] = useState(null);
   const [isUserCorrect, setIsUserCorrect] = useState(null);
   const [nextQuestion, setNextQuestion] = useState(null);
