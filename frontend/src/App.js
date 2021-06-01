@@ -7,6 +7,7 @@ import Landing from './pages/Landing/Landing.js';
 import GuessProb from './pages/Problems/GuessOutput/GuessProb.js';
 import FillIn from './pages/Problems/FillIn/FillIn.js'
 import Lessons from './pages/Lesson/Lessons.js';
+import Profile from './pages/Profile/Profile.js';
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
 
           <Route path='/lessons'>
             <Lessons/>
+          </Route>
+
+          <Route path='/profile'>
+            <Profile/>
           </Route>
           
           <Route path='/'>
