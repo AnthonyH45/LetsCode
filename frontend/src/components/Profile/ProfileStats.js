@@ -1,26 +1,39 @@
 import React, { useState } from 'react';
 import {
-  Button,
-  Container,
   Grid,
-  Paper
+  Paper,
 } from '@material-ui/core';
-import Fade from '@material-ui/core/Fade';
+import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
+import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
+
 import { makeStyles } from '@material-ui/core/styles';
-import Description from '../Description/Description.js';
-import Highlight from 'react-highlight'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
   paper: {
-    height: 300,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    whiteSpace: 'pre-wrap',
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 500,
+  },
+  smallpaper: {
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 250,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
   },
   control: {
     padding: theme.spacing(2)
@@ -52,80 +65,50 @@ const useStyles = makeStyles(theme => ({
     '&:disabled:hover': {
       backgroundColor: '#efefef',
     }
-  },
-  correctOption: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    backgroundColor: 'rgba(77,194,116,0.8)',
-    border: 'none',
-    cursor: 'pointer',
-    '&:disabled': {
-      backgroundColor: 'rgba(77,194,116,0.8)'
     },
-    '&:disabled:hover': {
-      backgroundColor: 'rgba(77,194,116,0.8)'
-    },
-  },
-  submit: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    '&:disabled': {
-      backgroundColor: 'rgba(77,194,116)'
-    },
-    '&:hover': {
-      backgroundColor: 'transparent'
-    },
-    '&:focus': {
-      backgroundColor: 'transparent'
-    }
-   
-  },
-  correct: {
-    zIndex: 10,
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    textAlign: 'center',
-    display: 'flex',
-    top: 0,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(77,194,116)',
-    color: 'white'
-  },
-  nextQuestion: {
-    marginTop: 30,
-    float: 'right',
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignSelf: 'flex-end',
-    color: 'black',
-    backgroundColor: 'rgba(77,194,116,0.8)',
-    fontWeight: 'bold',
-    '&:hover': {
-      backgroundColor: 'rgba(77,194,116)',
-      fontStyle: 'italic',
+    large: {
+      width: theme.spacing(17),
+      height: theme.spacing(17),
     },
   }
-}));
+));
 
 export default function ProfileStats() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Container>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>Stats</Paper>
+      <Paper className={classes.paper}>
+        <b>Statistics</b>
+        <Grid container>
+          <Grid container>
+            <Paper className={classes.smallpaper}>
+              <Grid item align="center" justify="center">
+                <b>Total Lessons Completed</b><br/>
+                <SchoolOutlinedIcon/><p>35</p>
+              </Grid>
+            </Paper>
+            <Paper className={classes.smallpaper}>
+              <Grid item align="center" justify="center">
+                <b>Total Problems Solved</b>
+                <p>400</p><EmojiObjectsOutlinedIcon/>
+              </Grid>
+            </Paper>
+            <Paper className={classes.smallpaper}>
+            <Grid item align="center" justify="center">
+              <b>Current Streak</b>
+              <p>17885 Days</p><WhatshotIcon/>
+            </Grid>
+            </Paper>
+            <Paper className={classes.smallpaper}>
+            <Grid item align="center" justify="center">
+              <b>Fastest Typing Speed</b>
+              <p>50 cpm</p><FlashOnIcon/>
+            </Grid>
+        </Paper>
         </Grid>
-      </Grid>
-      </Container>
+        </Grid>
+      </Paper>
     </div>
   );
 }

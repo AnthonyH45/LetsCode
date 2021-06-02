@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import {
-  Button,
   Container,
   Grid,
   Paper,
-  Box,
 } from '@material-ui/core';
-import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core/styles';
-import Description from '../Description/Description.js';
-import Highlight from 'react-highlight'
+
+import activity from "../../assets/activity.png"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -123,8 +120,12 @@ export default function ProfileActivity() {
     <div className={classes.root}>
       <Container>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>Activity</Paper>
+        <Grid item xs={12}>
+          <Paper className={classes.paper}>
+            <b>Activity</b>
+            <img src={activity} width='100%' height='100%'/>
+          </Paper>
+          
         </Grid>
       </Grid>
       </Container>
