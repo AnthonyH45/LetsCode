@@ -3,24 +3,40 @@ import {
   Button,
   Container,
   Grid,
-  Paper
+  Paper,
+  List,
+  ListItem,
+  Avatar,
+  ListItemAvatar,
+  ListItemText
 } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core/styles';
 import Description from '../Description/Description.js';
 import Highlight from 'react-highlight'
 
+import friend1 from "../../assets/pic1.png";
+import friend2 from "../../assets/pic2.png";
+import friend3 from "../../assets/pic3.jpg";
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
   paper: {
-    height: 300,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    whiteSpace: 'pre-wrap',
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 500,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
   },
   control: {
     padding: theme.spacing(2)
@@ -52,80 +68,56 @@ const useStyles = makeStyles(theme => ({
     '&:disabled:hover': {
       backgroundColor: '#efefef',
     }
-  },
-  correctOption: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    backgroundColor: 'rgba(77,194,116,0.8)',
-    border: 'none',
-    cursor: 'pointer',
-    '&:disabled': {
-      backgroundColor: 'rgba(77,194,116,0.8)'
     },
-    '&:disabled:hover': {
-      backgroundColor: 'rgba(77,194,116,0.8)'
-    },
-  },
-  submit: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    '&:disabled': {
-      backgroundColor: 'rgba(77,194,116)'
-    },
-    '&:hover': {
-      backgroundColor: 'transparent'
-    },
-    '&:focus': {
-      backgroundColor: 'transparent'
-    }
-   
-  },
-  correct: {
-    zIndex: 10,
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    textAlign: 'center',
-    display: 'flex',
-    top: 0,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(77,194,116)',
-    color: 'white'
-  },
-  nextQuestion: {
-    marginTop: 30,
-    float: 'right',
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignSelf: 'flex-end',
-    color: 'black',
-    backgroundColor: 'rgba(77,194,116,0.8)',
-    fontWeight: 'bold',
-    '&:hover': {
-      backgroundColor: 'rgba(77,194,116)',
-      fontStyle: 'italic',
+    small: {
+      width: theme.spacing(5),
+      height: theme.spacing(5),
     },
   }
-}));
+));
 
 export default function ProfileFriends() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Container>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>Friends</Paper>
+      <Paper className={classes.paper}>
+        <b>Friends</b>
+        <Grid container spacing={2}>
+            <List className={classes.root}>
+              <ListItem divider='true'>
+                <ListItemAvatar>
+                  <Avatar 
+                    className={classes.small} 
+                    style={{border: '0.1px solid black'}} 
+                    src={friend1} />
+                </ListItemAvatar>
+                <ListItemText primary="Johnny" secondary="Lvl 100"/> 
+                <p style={{color:"green"}}>online</p>
+              </ListItem>
+              <ListItem divider='true'>
+                <ListItemAvatar>
+                  <Avatar 
+                    className={classes.small} 
+                    style={{border: '0.1px solid black'}} 
+                    src={friend2} />
+                </ListItemAvatar>
+                <ListItemText primary="tin_can" secondary="Lvl 3" />
+                <p style={{color:"green"}}>online</p>
+              </ListItem>
+              <ListItem divider='true'>
+                <ListItemAvatar>
+                  <Avatar 
+                    className={classes.small} 
+                    style={{border: '0.1px solid black'}} 
+                    src={friend3} />
+                </ListItemAvatar>
+                <ListItemText primary="tomehomme" secondary="Lvl 1000" />
+                <p style={{color:"#B12A0C"}}>offline</p>
+              </ListItem>
+            </List>
         </Grid>
-      </Grid>
-      </Container>
+      </Paper>
     </div>
   );
 }

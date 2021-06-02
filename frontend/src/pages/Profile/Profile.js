@@ -16,11 +16,11 @@ export default function Profile() {
         <Box id="Profile">
             <Navbar/>
                 <Box marginBottom="25px" marginTop="75px">
-                    <ProfileBadge/>
-                    <ProfileFriends/>
-                    <ProfileActivity/>
-                    <ProfileAch/>
-                    <ProfileStats/>
+                    <ProfileBadge/> <br/>
+                    <ProfileFriends/> <br/>
+                    <ProfileActivity/> <br/>
+                    <ProfileAch/> <br/>
+                    <ProfileStats/> <br/>
                 </Box>
             <Copyright/>
         </Box>
