@@ -3,8 +3,16 @@ import {
   Button,
   Container,
   Grid,
-  Paper
+  Paper,
+  List,
+  ListItem,
+  Avatar,
+  ListItemAvatar,
+  ListItemText
 } from '@material-ui/core';
+import CheckIcon from '@material-ui/icons/Check';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core/styles';
 import Description from '../Description/Description.js';
@@ -15,12 +23,19 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   paper: {
-    height: 300,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    whiteSpace: 'pre-wrap',
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 375,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
   },
   control: {
     padding: theme.spacing(2)
@@ -52,80 +67,63 @@ const useStyles = makeStyles(theme => ({
     '&:disabled:hover': {
       backgroundColor: '#efefef',
     }
-  },
-  correctOption: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    backgroundColor: 'rgba(77,194,116,0.8)',
-    border: 'none',
-    cursor: 'pointer',
-    '&:disabled': {
-      backgroundColor: 'rgba(77,194,116,0.8)'
     },
-    '&:disabled:hover': {
-      backgroundColor: 'rgba(77,194,116,0.8)'
-    },
-  },
-  submit: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    '&:disabled': {
-      backgroundColor: 'rgba(77,194,116)'
-    },
-    '&:hover': {
-      backgroundColor: 'transparent'
-    },
-    '&:focus': {
-      backgroundColor: 'transparent'
-    }
-   
-  },
-  correct: {
-    zIndex: 10,
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    textAlign: 'center',
-    display: 'flex',
-    top: 0,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(77,194,116)',
-    color: 'white'
-  },
-  nextQuestion: {
-    marginTop: 30,
-    float: 'right',
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignSelf: 'flex-end',
-    color: 'black',
-    backgroundColor: 'rgba(77,194,116,0.8)',
-    fontWeight: 'bold',
-    '&:hover': {
-      backgroundColor: 'rgba(77,194,116)',
-      fontStyle: 'italic',
+    large: {
+      width: theme.spacing(17),
+      height: theme.spacing(17),
     },
   }
-}));
+));
 
 export default function ProfileAch() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Container>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>Achievements</Paper>
+      <Paper className={classes.paper}>
+        <b>Achievements</b>
+        <Grid container spacing={2}>
+            <List className={classes.root}>
+              <ListItem divider='true'>
+                <CheckIcon />
+                <ListItemText 
+                  primary="Completed your first lesson!" 
+                  style={{position: 'relative', left: '20px'}}/> 
+              </ListItem>
+              <ListItem divider='true'>
+                <CheckIcon/>
+                <ListItemText 
+                  primary="Reached over 50 cpm on Coderacer" 
+                  style={{position: 'relative', left: '20px'}}/>
+                  <WhatshotIcon/>
+              </ListItem>
+              <ListItem divider='true'>
+                <CheckIcon/>
+                <ListItemText 
+                  primary="Raced against other players in Coderacer" 
+                  style={{position: 'relative', left: '20px'}}/>
+              </ListItem>
+              <ListItem divider='true'>
+                <CheckIcon/>
+                <ListItemText 
+                  primary="Completed the Python course" 
+                  style={{position: 'relative', left: '20px'}}/>
+              </ListItem>
+              <ListItem divider='true'>
+                <CheckBoxOutlineBlankIcon/>
+                <ListItemText 
+                  primary="Completed the C++ course" 
+                  style={{position: 'relative', left: '20px'}}/>
+              </ListItem>
+              <ListItem divider='true'>
+                <CheckBoxOutlineBlankIcon/>
+                <ListItemText 
+                  primary="Added 5 friends" 
+                  style={{position: 'relative', left: '20px'}}/>
+              </ListItem>
+            </List>
         </Grid>
-      </Grid>
-      </Container>
+      </Paper>
     </div>
   );
 }
