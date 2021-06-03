@@ -16,10 +16,11 @@ const useStyles = makeStyles({
       alignItems: 'center',
       justifyContent: 'space-around',
       width: '100%',
-      position: 'fixed',
+      position: 'absolute',
       top: '0',
       padding: '10px 50px',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
+      zIndex: 10
     },
     item: {
         display: 'flex',
