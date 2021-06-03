@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   TextField,
   Typography,
@@ -151,51 +151,58 @@ def main():
   
   const [ currentText, setCurrentText ] = useState(asd)
   const [ goodOrBad, setGoodOrBad ] = useState(true)
-  
-  const handleText = (e) => {
-    setCurrentText(e.target.value)
-    console.log("Prob.code.slice(0,currentText.length+1).trim()",Prob.code.slice(0,currentText.length+1).trim())
-    console.log("currentText",currentText)
-    if (Prob.code.slice(0,currentText.length+1).trim() === currentText.trim() && currentText.length !== 0) {
-      // correct()
-      setGoodOrBad(true)
-    } else {
-      // wrong()
-      setGoodOrBad(false)
-    }
-  }
-
+    
   const classes = useStyles();
   const GreenTextField = withStyles({
     root: {
       color: 'green'
     }
   })(Typography);
-  // const redTextField = withStyles({
-  //   root: {
-  //     color: 'green'
-  //   }
-  // })(Typography);
-
+  const RedTextField = withStyles({
+    root: {
+      color: 'red'
+    }
+  })(Typography);
+      
   const displayCurrentText = () => {
-    console.log("gob:",goodOrBad)
     return (
-        // (goodOrBad) ?
-        <GreenTextField>
-          currentText
-        </GreenTextField>
-        // :
-        // <redTextField>
-        //   currentText
-        // </redTextField>
+      (goodOrBad) ?
+      <GreenTextField>
+        {currentText}
+      </GreenTextField>
+      :
+      <RedTextField>
+        {currentText}
+      </RedTextField>
     );
   }
+
+  const checkCorrect = () => {
+    // console.log(currentText.trim())
+    // console.log(Prob.code.slice(0,currentText.length+1).trim())
+    const cur = currentText.trim()
+    const probc = Prob.code.slice(0,currentText.trim().length+1).trim()
+
+    if (cur.localeCompare(probc) === 0) {
+      console.log("YES")
+      setGoodOrBad(true)
+    } else {
+      console.log("NO")
+      setGoodOrBad(false)
+    }
+  }
   
+  useEffect(() => {
+    checkCorrect()
+  })
+
+  // console.log(currentText.trim())
+  // console.log(Prob.code.slice(0,currentText.trim().length+1).trim())
+
   return (
     <Grid container className={classes.root} spacing={3}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={3}>
-          
           <Grid xs={6} key={0} item>
             <Paper className={classes.paper}>
               <Highlight innerHTML={true}>{'<p>Type this to have the right and left match!</p>'}</Highlight>
@@ -204,7 +211,6 @@ def main():
               </Highlight>
             </Paper>
           </Grid>
-
           <Grid xs={6} key={1} item>
             <Paper className={`${classes.paper}`}>
               {/* <reddTextField>
@@ -213,7 +219,6 @@ def main():
               {displayCurrentText()}
             </Paper>
           </Grid>
-
         </Grid>
 
         <br/>
@@ -221,12 +226,9 @@ def main():
         <br/>
 
         <Grid item xs>
-          {/* <Paper className={`${classes.paper}`}> */}
-            <TextField className={`${classes.paper}`} multiline rows={20} width={'30px'} onChange={(e) => handleText(e)}/>
-          {/* </Paper> */}
+          <TextField className={`${classes.paper}`} multiline rows={20} width={'30px'} onChange={(e) => setCurrentText(e.target.value)}/>
         </Grid>
-
       </Grid>
     </Grid>
-  );
+);
 }
