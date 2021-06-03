@@ -6,16 +6,15 @@ import Copyright from '../../components/Copyright/Copyright.js';
 import Navbar from '../../components/Navbar/Navbar.js';
 
 export default function Typeracer() {
+	return (
+		<Box id='typeracer'>
+			<Navbar />
 
-  return (
-    <Box id="typeracer">
-        <Navbar/>
+			<Box marginBottom='25px' marginTop='75px'>
+				<TypeRacer />
+			</Box>
 
-        <Box marginBottom="25px" marginTop="75px">
-            <TypeRacer/>
-        </Box>
-
-        <Copyright/>
-    </Box>
-);
+			<Copyright />
+		</Box>
+	);
 }
