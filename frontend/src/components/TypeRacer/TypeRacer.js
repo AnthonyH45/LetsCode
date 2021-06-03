@@ -9,7 +9,7 @@ import {
   Paper,
   Divider
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Highlight from 'react-highlight'
 
 const useStyles = makeStyles(theme => ({
@@ -126,6 +126,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Typeracer() {
+  const asd = 'this should be replaced'
   const Prob = {
     code:`
 def printEvensUntilTen():
@@ -148,7 +149,7 @@ def main():
     new Audio("https://freesound.org/data/previews/140/140867_649468-lq.mp3").play();
   }
   
-  const [ currentText, setCurrentText ] = useState('');
+  const [ currentText, setCurrentText ] = useState(asd)
   const [ goodOrBad, setGoodOrBad ] = useState(true)
   
   const handleText = (e) => {
@@ -163,8 +164,33 @@ def main():
       setGoodOrBad(false)
     }
   }
-  
+
   const classes = useStyles();
+  const GreenTextField = withStyles({
+    root: {
+      color: 'green'
+    }
+  })(Typography);
+  // const redTextField = withStyles({
+  //   root: {
+  //     color: 'green'
+  //   }
+  // })(Typography);
+
+  const displayCurrentText = () => {
+    console.log("gob:",goodOrBad)
+    return (
+        // (goodOrBad) ?
+        <GreenTextField>
+          currentText
+        </GreenTextField>
+        // :
+        // <redTextField>
+        //   currentText
+        // </redTextField>
+    );
+  }
+  
   return (
     <Grid container className={classes.root} spacing={3}>
       <Grid item xs={12}>
@@ -181,13 +207,10 @@ def main():
 
           <Grid xs={6} key={1} item>
             <Paper className={`${classes.paper}`}>
-              {/* <Typography className={goodOrBad ? classes.good : classes.bad}>
-                {currentText}
-              </Typography> */}
-              <Highlight innerHTML={true}>{'<p>Type this to have the right and left match!</p>'}</Highlight>
-              <Highlight language="python">
-                {currentText}
-              </Highlight>
+              {/* <reddTextField>
+                {'asdasdas'}
+              </reddTextField> */}
+              {displayCurrentText()}
             </Paper>
           </Grid>
 
