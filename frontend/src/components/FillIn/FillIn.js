@@ -126,7 +126,7 @@ export default function GuessOutput() {
     category: 'INTRODUCTION',
     title: 'Arithmetic',
     desc: 'Fill in the following code to enhance your code reading and debugging skillz',
-    lessonLink: 'https://link.to.the.lesson.plan',
+    lessonLink: '/lessons',
     questions: [`
 def compute_sum(list_to_sum):
     sum = 0

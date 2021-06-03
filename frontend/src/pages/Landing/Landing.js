@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const cards = [1, 2, 3];
 
 export default function Landing() {
   const classes = useStyles();
@@ -65,6 +64,7 @@ export default function Landing() {
           </Typography>
         </Toolbar>
       </AppBar>
+
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
@@ -119,8 +119,9 @@ export default function Landing() {
             </div>
           </Container>
         </div>
+        {/* End hero unit */}
+        
         <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
             <Grid item key={0} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
@@ -156,9 +157,6 @@ export default function Landing() {
                       </Button>
                     </Link>
                     
-                    {/* <Button size="small" color="primary">
-                      Edit
-                    </Button> */}
                   </CardActions>
                 </Card>
               </Grid>
@@ -182,9 +180,6 @@ export default function Landing() {
                     <Button size="small" color="primary" disabled="true">
                       Learn
                     </Button>
-                    {/* <Button size="small" color="primary">
-                      Edit
-                    </Button> */}
                   </CardActions>
                 </Card>
               </Grid>
@@ -208,43 +203,14 @@ export default function Landing() {
                     <Button size="small" color="primary" disabled="true">
                       Learn
                     </Button>
-                    {/* <Button size="small" color="primary">
-                      Edit
-                    </Button> */}
                   </CardActions>
                 </Card>
               </Grid>
 
-            {/* {cards.map((card) => (
-              <Grid item key={1} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Learn
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))} */}
           </Grid>
         </Container>
       </main>
+
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
@@ -255,6 +221,7 @@ export default function Landing() {
         <Copyright />
       </footer>
       {/* End footer */}
+
     </React.Fragment>
   );
 }

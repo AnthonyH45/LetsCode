@@ -4,7 +4,7 @@ import {
     Box,
     Button,
     Typography,
-    // Container,
+    Link
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -55,7 +55,9 @@ export default function Description(props) {
                         <Typography>{desc}</Typography>
                     </Box>
                     <CardActions>
-                        <Button size="small">Lesson Plan</Button>
+                        <Link to={lessonLink}>
+                          <Button size="small">Lesson Plan</Button>
+                        </Link>
                     </CardActions>
                 </CardContent>
             </Card>

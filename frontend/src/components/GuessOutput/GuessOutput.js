@@ -124,7 +124,7 @@ export default function GuessOutput({prob}) {
     category: 'INTRODUCTION',
     title: 'For Loops',
     desc: 'Now flex your skills by guessing the output of the following code!',
-    lessonLink: 'https://link.to.the.lesson.plan',
+    lessonLink: '/lessons',
     questions: [`
 def printA(num):
     for i in range(0,num):
