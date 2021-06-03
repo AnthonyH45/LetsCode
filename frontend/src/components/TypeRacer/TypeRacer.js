@@ -6,7 +6,8 @@ import {
   Container,
   Grid,
   Fade,
-  Paper
+  Paper,
+  Divider
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Highlight from 'react-highlight'
@@ -118,6 +119,9 @@ const useStyles = makeStyles(theme => ({
     bad: {
       color: 'red',
     },
+    enter: {
+      padding: '100px',
+    }
   }
 }));
 
@@ -152,10 +156,10 @@ def main():
     console.log("Prob.code.slice(0,currentText.length+1).trim()",Prob.code.slice(0,currentText.length+1).trim())
     console.log("currentText",currentText)
     if (Prob.code.slice(0,currentText.length+1).trim() === currentText.trim() && currentText.length !== 0) {
-      correct()
+      // correct()
       setGoodOrBad(true)
     } else {
-      wrong()
+      // wrong()
       setGoodOrBad(false)
     }
   }
@@ -168,7 +172,7 @@ def main():
           
           <Grid xs={6} key={0} item>
             <Paper className={classes.paper}>
-              <Highlight innerHTML={true}>{'<p>Question</p>'}</Highlight>
+              <Highlight innerHTML={true}>{'<p>Type this to have the right and left match!</p>'}</Highlight>
               <Highlight language="python">
                 {Prob.code}
               </Highlight>
@@ -177,14 +181,28 @@ def main():
 
           <Grid xs={6} key={1} item>
             <Paper className={`${classes.paper}`}>
-              <Typography className={goodOrBad ? classes.good : classes.bad}>
+              {/* <Typography className={goodOrBad ? classes.good : classes.bad}>
                 {currentText}
-              </Typography>
-              <TextField onChange={(e) => handleText(e)} />            
+              </Typography> */}
+              <Highlight innerHTML={true}>{'<p>Type this to have the right and left match!</p>'}</Highlight>
+              <Highlight language="python">
+                {currentText}
+              </Highlight>
             </Paper>
           </Grid>
 
         </Grid>
+
+        <br/>
+        <Divider/>
+        <br/>
+
+        <Grid item xs>
+          {/* <Paper className={`${classes.paper}`}> */}
+            <TextField className={`${classes.paper}`} multiline rows={20} width={'30px'} onChange={(e) => handleText(e)}/>
+          {/* </Paper> */}
+        </Grid>
+
       </Grid>
     </Grid>
   );
