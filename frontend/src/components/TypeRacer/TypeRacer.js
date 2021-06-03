@@ -128,8 +128,8 @@ const useStyles = makeStyles(theme => ({
 export default function Typeracer() {
   const asd = 'this should be replaced'
   const Prob = {
-    code:`
-def printEvensUntilTen():
+    code:
+`def printEvensUntilTen():
     for i in [1,2,3,4,5,6,7,8,9,10]:
       if i % 2 == 0:
         print(i)
@@ -141,6 +141,11 @@ def main():
     print("All done!")
 `
   }
+
+  // this one doent work?
+  // const Prob = {
+  //   code: `[sum([j%i for j in range(0,100)]) for i in range(0,100)]`
+  // }
 
   const correct = () => {
     new Audio("https://freesound.org/data/previews/99/99636_1163166-lq.mp3").play();
@@ -177,9 +182,12 @@ def main():
     );
   }
 
+  // progress bar
+  // timer
+  // WPM
+  // 
+
   const checkCorrect = () => {
-    // console.log(currentText.trim())
-    // console.log(Prob.code.slice(0,currentText.length+1).trim())
     const cur = currentText.trim()
     const probc = Prob.code.slice(0,currentText.trim().length+1).trim()
 
@@ -191,13 +199,10 @@ def main():
       setGoodOrBad(false)
     }
   }
-  
+
   useEffect(() => {
     checkCorrect()
   })
-
-  // console.log(currentText.trim())
-  // console.log(Prob.code.slice(0,currentText.trim().length+1).trim())
 
   return (
     <Grid container className={classes.root} spacing={3}>
@@ -213,9 +218,6 @@ def main():
           </Grid>
           <Grid xs={6} key={1} item>
             <Paper className={`${classes.paper}`}>
-              {/* <reddTextField>
-                {'asdasdas'}
-              </reddTextField> */}
               {displayCurrentText()}
             </Paper>
           </Grid>
@@ -226,7 +228,13 @@ def main():
         <br/>
 
         <Grid item xs>
-          <TextField className={`${classes.paper}`} multiline rows={20} width={'30px'} onChange={(e) => setCurrentText(e.target.value)}/>
+          <TextField
+            multiline
+            className={`${classes.paper}`}
+            rows={20}
+            width={'30px'}
+            onChange={(e) => setCurrentText(e.target.value)}
+          />
         </Grid>
       </Grid>
     </Grid>

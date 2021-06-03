@@ -114,6 +114,14 @@ export default function Landing() {
                     </Button>
                   </Link>
                 </Grid>
+
+                <Grid item>
+                  <Link to='/racer'>
+                    <Button variant="outlined" color="primary">
+                      TypeRacing!
+                    </Button>
+                  </Link>
+                </Grid>
               </Grid>
 
             </div>
