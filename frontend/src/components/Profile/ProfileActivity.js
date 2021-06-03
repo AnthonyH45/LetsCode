@@ -13,12 +13,17 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   paper: {
-    height: 300,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    whiteSpace: 'pre-wrap',
+    // height: 300,
+    // display: 'flex',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // flexDirection: 'column',
+    // whiteSpace: 'pre-wrap',
+    // textAlign: 'left',
+  },
+  txt: {
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   control: {
     padding: theme.spacing(2)
@@ -122,7 +127,7 @@ export default function ProfileActivity() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <b>Activity</b>
+            <b className={classes.txt}>Activity</b>
             <img src={activity} width='100%' height='100%'/>
           </Paper>
           
