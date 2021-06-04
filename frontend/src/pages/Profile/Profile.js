@@ -9,27 +9,38 @@ import ProfileStats from '../../components/Profile/ProfileStats.js';
 
 import Copyright from '../../components/Copyright/Copyright.js';
 import Navbar from '../../components/Navbar/Navbar.js';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    height: '100%',
+    marginBottom: 40,
+    marginTop: 75
+  }
+}));
 export default function Profile() {
+  const classes = useStyles();
   return (
-    <Box id="Profile">
+    <Box>
       <Navbar />
-      <Container style={{marginBottom: '40px'}} marginBottom="25px" marginTop="75px">
-        <Grid container >
-          <Grid container md={12 } >
-            <Grid item md={8}  >
+      <Container>
+        <Grid container md={12} className={classes.root}>
+          <Grid container md={12} spacing={4} alignItems="center">
+            <Grid item md={8}>
               <ProfileBadge />
             </Grid>
-            <Grid item md={4} >
+            <Grid item md={4}>
               <ProfileFriends />
             </Grid>
           </Grid>
-          <Grid container md={12} >
+          <Grid container md={12} spacing={4} alignItems="center">
             <Grid item md={8}>
-              <ProfileActivity />
+              <Box marginBottom={4}>
+                <ProfileActivity />
+              </Box>
               <ProfileStats />
             </Grid>
-            <Grid item md={4} >
+            <Grid item md={4}>
               <ProfileAch />
             </Grid>
           </Grid>

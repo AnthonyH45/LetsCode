@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Paper, Box } from '@material-ui/core';
 import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
 import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
@@ -75,7 +75,7 @@ export default function ProfileStats() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <Box className={classes.root}>
       <Paper className={classes.paper}>
           <b>Statistics</b>
         <Grid container align="center" justify="center">
@@ -122,6 +122,6 @@ export default function ProfileStats() {
           </Grid>
         </Grid>
       </Paper>
-    </div>
+    </Box>
   );
 }

@@ -89,7 +89,7 @@ const Navbar = () => {
                         </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                        <Link to='/signin'  className={classes.link}>
+                        <Link to='/profile'  className={classes.link}>
                             My Account
                         </Link>
                     </MenuItem>

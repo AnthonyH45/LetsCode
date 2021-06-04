@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Box,
   Grid,
   Paper,
   List,
@@ -12,111 +13,70 @@ import WhatshotIcon from '@material-ui/icons/Whatshot';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
+  root: {},
   paper: {
-    padding: theme.spacing(2),
-    // margin: 'auto',
-    // maxWidth: 375,
-  },
-  image: {
-    width: 128,
-    height: 128,
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
-  control: {
+    height:'100%',
     padding: theme.spacing(2)
-  },
-  pos: {
-    marginBottom: 12
-  },
-  options: {},
-  option: {
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    backgroundColor: 'light-gray',
-    border: 'none',
-    cursor: 'pointer',
-    margin: theme.spacing(1),
-    '&:hover': {
-      backgroundColor: 'gray'
-    },
-    '&:focus': {
-      backgroundColor: 'gray'
-    },
-    '&:disabled': {
-      backgroundColor: '#efefef',
-      color: 'black'
-    },
-    '&:disabled:hover': {
-      backgroundColor: '#efefef',
-    }
-    },
-    large: {
-      width: theme.spacing(17),
-      height: theme.spacing(17),
-    },
   }
-));
+}));
 
 export default function ProfileAch() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <Box className={classes.root}>
       <Paper className={classes.paper}>
         <b>Achievements</b>
-        <Grid container spacing={2}>
-            <List className={classes.root}>
-              <ListItem divider='true'>
-                <CheckIcon />
-                <ListItemText 
-                  primary="Completed your first lesson!" 
-                  style={{position: 'relative', left: '20px'}}/> 
-              </ListItem>
-              <ListItem divider='true'>
-                <CheckIcon/>
-                <ListItemText 
-                  primary="Reached over 50 cpm on Coderacer" 
-                  style={{position: 'relative', left: '20px'}}/>
-                  <WhatshotIcon/>
-              </ListItem>
-              <ListItem divider='true'>
-                <CheckIcon/>
-                <ListItemText 
-                  primary="Raced against other players in Coderacer" 
-                  style={{position: 'relative', left: '20px'}}/>
-              </ListItem>
-              <ListItem divider='true'>
-                <CheckIcon/>
-                <ListItemText 
-                  primary="Completed the Python course" 
-                  style={{position: 'relative', left: '20px'}}/>
-              </ListItem>
-              <ListItem divider='true'>
-                <CheckBoxOutlineBlankIcon/>
-                <ListItemText 
-                  primary="Completed the C++ course" 
-                  style={{position: 'relative', left: '20px'}}/>
-              </ListItem>
-              <ListItem divider='true'>
-                <CheckBoxOutlineBlankIcon/>
-                <ListItemText 
-                  primary="Added 5 friends" 
-                  style={{position: 'relative', left: '20px'}}/>
-              </ListItem>
-            </List>
-        </Grid>
+        <Box>
+          <List>
+            <ListItem divider="true">
+              <CheckIcon />
+              <ListItemText
+                primary="Completed your first lesson!"
+                style={{ position: 'relative', left: '20px' }}
+              />
+            </ListItem>
+            <ListItem divider="true">
+              <CheckIcon />
+              <ListItemText
+                primary="Reached over 50 cpm on Coderacer"
+                style={{ position: 'relative', left: '20px' }}
+              />
+              <Box marginLeft={5}>
+                <WhatshotIcon />
+              </Box>
+            </ListItem>
+            <ListItem divider="true">
+              <CheckIcon />
+              <ListItemText
+                primary="Raced against other players in Coderacer"
+                style={{ position: 'relative', left: '20px' }}
+              />
+            </ListItem>
+            <ListItem divider="true">
+              <CheckIcon />
+              <ListItemText
+                primary="Completed the Python course"
+                style={{ position: 'relative', left: '20px' }}
+              />
+            </ListItem>
+            <ListItem divider="true">
+              <CheckBoxOutlineBlankIcon />
+              <ListItemText
+                primary="Completed the C++ course"
+                style={{ position: 'relative', left: '20px' }}
+              />
+            </ListItem>
+            <ListItem divider="true">
+              <CheckBoxOutlineBlankIcon />
+              <ListItemText
+                primary="Added 5 friends"
+                style={{ position: 'relative', left: '20px' }}
+              />
+            </ListItem>
+          </List>
+        </Box>
       </Paper>
-    </div>
+    </Box>
   );
 }
