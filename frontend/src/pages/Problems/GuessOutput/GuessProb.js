@@ -6,16 +6,15 @@ import Copyright from '../../../components/Copyright/Copyright.js';
 import Navbar from '../../../components/Navbar/Navbar.js';
 
 export default function GuessProb() {
-    return (
-        <Box id="GuessProb">
-            <Navbar/>
+	return (
+		<Box id='GuessProb'>
+			<Navbar />
 
-            <Box marginBottom="25px" marginTop="75px">
-                <GuessOutput/>
-            </Box>
+			<Box marginBottom='25px' marginTop='75px'>
+				<GuessOutput />
+			</Box>
 
-            <Copyright/>
-        </Box>
-    );
+			<Copyright />
+		</Box>
+	);
 }
-
