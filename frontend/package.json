@@ -1,6 +1,6 @@
 {
-	"homepage": "http://anthonyh45.github.io/letscode",
-	"name": "frontend",
+	"homepage": "https://anthonyh45.github.io/letscode",
+	"name": "letscode",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
