@@ -124,7 +124,9 @@ const useStyles = makeStyles(theme => ({
     enter: {
       padding: '100px'
     }
-  }
+  },
+  good: { color: 'green' },
+  bad: { color: 'red' }
 }));
 
 export default function Typeracer() {
@@ -192,7 +194,6 @@ export default function Typeracer() {
     return () => clearInterval(interval);
   }, [startTypeRacer, finishTypeRacer]);
 
-
   const displayCurrentText = () => {
     return goodOrBad ? (
       <GreenTextField>{currentText}</GreenTextField>
@@ -203,9 +204,9 @@ export default function Typeracer() {
 
   const checkCorrect = () => {
     const cur = currentText.trim();
-    const probc = Prob.code.slice(0, currentText.trim().length + 1).trim();
-
-    if (cur.localeCompare(probc) === 0) {
+    const probc = Prob.code.slice(0, currentText.trim().length).trim();
+    console.log(cur, probc);
+    if (cur === probc) {
       setGoodOrBad(true);
     } else {
       setGoodOrBad(false);
@@ -235,10 +236,28 @@ export default function Typeracer() {
             </Paper>
           </Grid>
           <Grid xs={6} key={1} item>
-            <Paper className={`${classes.paper}`}>{displayCurrentText()}</Paper>
+            <Paper className={`${classes.paper}`}>
+              <TextField
+                multiline
+                className={`${classes.paper}`}
+                rows={20}
+                width="300px"
+                InputProps={{
+                  className: goodOrBad ? classes.good : classes.bad
+                }}
+                onChange={e => {
+                  setCurrentText(e.target.value);
+                  setStartTypeRacer(true);
+                }}
+                placeholder={asd}
+                variant="outlined"
+              />
+
+              {/* {displayCurrentText()} */}
+            </Paper>
           </Grid>
         </Grid>
-
+        {/* 
         <br />
         <Divider />
         <br />
@@ -256,7 +275,7 @@ export default function Typeracer() {
             placeholder={asd}
             variant="outlined"
           />
-        </Grid>
+        </Grid> */}
       </Grid>
     </Grid>
   );
