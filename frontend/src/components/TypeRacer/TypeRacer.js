@@ -8,6 +8,7 @@ import {
 	Fade,
 	Paper,
 	Divider,
+	useIsFocusVisible,
 } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Highlight from 'react-highlight';
@@ -140,7 +141,6 @@ export default function Typeracer() {
 	// `,
 	// 	};
 
-	// this one doent work?
 	const Prob = {
 		code: `[[j%i for j in range(0,100)] for i in range(0,100)]`,
 	};
@@ -150,26 +150,39 @@ export default function Typeracer() {
 			'https://freesound.org/data/previews/99/99636_1163166-lq.mp3'
 		).play();
 	};
+
 	const wrong = () => {
 		new Audio(
 			'https://freesound.org/data/previews/140/140867_649468-lq.mp3'
 		).play();
 	};
 
-	const [currentText, setCurrentText] = useState(asd);
-	const [goodOrBad, setGoodOrBad] = useState(true);
-
-	const classes = useStyles();
 	const GreenTextField = withStyles({
 		root: {
 			color: 'green',
 		},
 	})(Typography);
+
 	const RedTextField = withStyles({
 		root: {
 			color: 'red',
 		},
 	})(Typography);
+
+	const classes = useStyles();
+
+	const [currentText, setCurrentText] = useState(asd);
+	const [goodOrBad, setGoodOrBad] = useState(true);
+	const [timer, setTimer] = useState(0);
+	const [count, setCount] = useState(0);
+
+	const setInterval = () => {
+		const newTimer = new Date().getTime();
+		const currentTime = newTimer - timer;
+
+		const seconds = Math.floor((currentTime % (1000 * 60)) / 1000);
+		return seconds;
+	};
 
 	const displayCurrentText = () => {
 		return goodOrBad ? (
@@ -179,21 +192,18 @@ export default function Typeracer() {
 		);
 	};
 
-	// progress bar
-	// timer
-	// WPM
-	//
-
 	const checkCorrect = () => {
 		const cur = currentText.trim();
 		const probc = Prob.code.slice(0, currentText.trim().length + 1).trim();
 
 		if (cur.localeCompare(probc) === 0) {
-			console.log('YES');
 			setGoodOrBad(true);
 		} else {
-			console.log('NO');
 			setGoodOrBad(false);
+		}
+
+		if (probc.trim().length === Prob.code.trim().length) {
+			console.log('DONE!');
 		}
 	};
 
@@ -204,6 +214,7 @@ export default function Typeracer() {
 	return (
 		<Grid container className={classes.root} spacing={3}>
 			<Grid item xs={12}>
+				<h1>TIMER {timer} </h1>
 				<Grid container justify='center' spacing={3}>
 					<Grid xs={6} key={0} item>
 						<Paper className={classes.paper}>
@@ -227,8 +238,10 @@ export default function Typeracer() {
 						multiline
 						className={`${classes.paper}`}
 						rows={20}
-						width={'30px'}
+						width='300px'
 						onChange={(e) => setCurrentText(e.target.value)}
+						placeholder={asd}
+						variant='outlined'
 					/>
 				</Grid>
 			</Grid>
