@@ -44,7 +44,7 @@ function App() {
 					<Typeracer />
 				</Route>
         
-        <Route path='/profile'>
+        <Route path='/profile/snake'>
           <Profile/>
         </Route>
 
