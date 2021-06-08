@@ -125,7 +125,7 @@ def printA(num):
     for i in range(0,num):
         print('A')
 
-print(3)
+printA(3)
         `,
 			`
 def printList(num):

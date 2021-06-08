@@ -126,24 +126,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Typeracer() {
 	const asd = 'this should be replaced';
-	const Prob = {
-		code: `def printEvensUntilTen():
-    for i in [1,2,3,4,5,6,7,8,9,10]:
-      if i % 2 == 0:
-        print(i)
-      else:
-        print("Not Even")
+	// 	const Prob = {
+	// 		code: `def printEvensUntilTen():
+	//     for i in [1,2,3,4,5,6,7,8,9,10]:
+	//       if i % 2 == 0:
+	//         print(i)
+	//       else:
+	//         print("Not Even")
 
-def main():
-    printEvensUntilTen()
-    print("All done!")
-`,
-	};
+	// def main():
+	//     printEvensUntilTen()
+	//     print("All done!")
+	// `,
+	// 	};
 
 	// this one doent work?
-	// const Prob = {
-	//   code: `[sum([j%i for j in range(0,100)]) for i in range(0,100)]`
-	// }
+	const Prob = {
+		code: `[[j%i for j in range(0,100)] for i in range(0,100)]`,
+	};
 
 	const correct = () => {
 		new Audio(

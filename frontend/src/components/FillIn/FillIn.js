@@ -1,4 +1,4 @@
-import React, { useState, useRef, useDebugValue } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Container, Grid, Paper, TextField } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core/styles';
@@ -109,12 +109,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function GuessOutput() {
-	const [userAnswer, setUserAnswer] = useState(null);
-	const [isUserCorrect, setIsUserCorrect] = useState(null);
-	const [nextQuestion, setNextQuestion] = useState(null);
-	const [level, setLevel] = useState(0);
-	const valRef = useRef('');
-
 	const Prob = {
 		category: 'INTRODUCTION',
 		title: 'Arithmetic',
@@ -144,7 +138,7 @@ print_square(3) # prints 9
         `,
 		],
 		blanks: ['sum ___ i', '[ ___ for i in', 'print(num ___ ____)'],
-		answers: ['+=', 'i', '**num'],
+		answers: ['+=', 'i', '** num'],
 	};
 	const correct = () => {
 		new Audio(
@@ -157,19 +151,18 @@ print_square(3) # prints 9
 		).play();
 	};
 
-	const selectAnswer = (option) => {
-		console.log('option:', option);
-		setUserAnswer(option);
-	};
+	const [userAnswer, setUserAnswer] = useState('');
+	const [isUserCorrect, setIsUserCorrect] = useState(null);
+	const [nextQuestion, setNextQuestion] = useState(null);
+	const [level, setLevel] = useState(0);
 
-	const checkCorrect = (userAnswer) => {
-		console.log('useranswer:', userAnswer);
-		// setIsUserCorrect(userAnswer === Prob.answers[level]);
+	const checkCorrect = () => {
+		setIsUserCorrect(userAnswer === Prob.answers[level]);
 		if (userAnswer === Prob.answers[level]) {
 			correct();
 			return true;
 		}
-		wrong();
+		// wrong();
 		return false;
 	};
 
@@ -180,13 +173,9 @@ print_square(3) # prints 9
 		setNextQuestion(false);
 	};
 
-	const handleChange = (e) => {
-		return console.log(e.target.value);
-	};
-
-	const sendVal = () => {
-		console.log('submit');
-	};
+	useEffect(() => {
+		checkCorrect();
+	});
 
 	const classes = useStyles();
 
@@ -235,13 +224,13 @@ print_square(3) # prints 9
 										id='user-fillin'
 										label={Prob.blanks[level]}
 										variant='outlined'
-										onChange={handleChange}
+										onChange={(e) => setUserAnswer(e.target.value)}
 									/>
-									<Button onClick={sendVal()} disabled={nextQuestion}>
+									{/* <Button onClick={checkCorrect} disabled={nextQuestion}>
 										<span className={`${classes.option} ${classes.submit}`}>
-											Submit
+											
 										</span>
-									</Button>
+									</Button> */}
 								</Paper>
 
 								<Button
