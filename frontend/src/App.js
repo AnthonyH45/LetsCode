@@ -8,12 +8,14 @@ import GuessProb from "./pages/Problems/GuessOutput/GuessProb.js";
 import FillIn from "./pages/Problems/FillIn/FillIn.js";
 import Lessons from "./pages/Lesson/Lessons.js";
 import Typeracer from "./pages/Typeracer/Typeracer.js";
+import Profile from './pages/Profile/Profile.js';
 
 function App() {
 	return (
 		// to add path, add <Route path='PATHNAME'> <COMPONENT/> </Route>
 		<BrowserRouter>
 			<Switch>
+    
 				<Route path="/signin">
 					<SignIn />
 				</Route>
@@ -37,10 +39,15 @@ function App() {
 				<Route path="/racer">
 					<Typeracer />
 				</Route>
+        
+        <Route path='/profile'>
+          <Profile/>
+        </Route>
 
 				<Route path="/">
 					<Landing />
 				</Route>
+    
 			</Switch>
 		</BrowserRouter>
 	);
