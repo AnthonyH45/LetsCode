@@ -156,7 +156,7 @@ export default function Landing() {
 									</Typography>
 								</CardContent>
 								<CardActions>
-									<Link to='/lessons'>
+									<Link to='/lessonsPython'>
 										<Button size='small' color='primary'>
 											Learn
 										</Button>
@@ -186,16 +186,19 @@ export default function Landing() {
 								/>
 								<CardContent className={classes.cardContent}>
 									<Typography gutterBottom variant='h5' component='h2'>
-										C++ (Coming soon)
+										C++ 
 									</Typography>
 									<Typography>
 										Need to add 1 to an integer value? ++ has your back.
 									</Typography>
 								</CardContent>
 								<CardActions>
-									<Button size='small' color='primary' disabled='true'>
-										Learn
-									</Button>
+									<Link to='/lessonsC'>
+										<Button size='small' color='primary'>
+											Learn
+										</Button>
+									</Link>
+
 								</CardActions>
 							</Card>
 						</Grid>

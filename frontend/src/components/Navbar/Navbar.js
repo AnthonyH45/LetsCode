@@ -56,6 +56,22 @@ const Navbar = () => {
 				<img src={icon} alt='thisisanicon' className={classes.icon} />
 			</Link>
 
+			<Link to='/demoproblem' className={classes.link}>
+				<Box>
+					<Box component='span' className={`${classes.item}`}>
+						<ComputerIcon /> Learn
+					</Box>
+				</Box>
+			</Link>
+
+			<Link to='/coderacing' className={classes.link}>
+				<Box>
+					<Box component='span' className={`${classes.item}`}>
+						<CodeIcon /> Code Racing
+					</Box>
+				</Box>
+			</Link>
+
 			<Link className={classes.link}>
 				<Box>
 					<Button
@@ -74,7 +90,7 @@ const Navbar = () => {
 						onClose={handleClose}
 					>
 						<MenuItem onClick={handleClose}>
-							<Link to='/demoproblem' className={classes.link}>
+							<Link to='/lessonsPython' className={classes.link}>
 								My Lessons
 							</Link>
 						</MenuItem>
