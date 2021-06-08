@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 export default function Ad() {
 	return (
-		<Container>
+		<Grid container justify='center'>
 			<h1>$$$ -- AD HERE -- $$$</h1>
-		</Container>
+		</Grid>
 	);
 }

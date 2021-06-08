@@ -56,7 +56,7 @@ const Navbar = () => {
 				<img src={icon} alt='thisisanicon' className={classes.icon} />
 			</Link>
 
-			<Link to='/demoproblem' className={classes.link}>
+			<Link to='/lessonsPython' className={classes.link}>
 				<Box>
 					<Box component='span' className={`${classes.item}`}>
 						<ComputerIcon /> Learn
@@ -64,7 +64,7 @@ const Navbar = () => {
 				</Box>
 			</Link>
 
-			<Link to='/coderacing' className={classes.link}>
+			<Link to='/racer' className={classes.link}>
 				<Box>
 					<Box component='span' className={`${classes.item}`}>
 						<CodeIcon /> Code Racing
@@ -110,52 +110,5 @@ const Navbar = () => {
 		</Box>
 	);
 };
-
-// 			<Link to='/coderacing' className={classes.link}>
-// 				<Box>
-// 					<Box component='span' className={`${classes.item}`}>
-// 						<CodeIcon /> Code Racing
-// 					</Box>
-// 				</Box>
-// 			</Link>
-
-// 			<Link className={classes.link}>
-// 				<Box>
-// 					<Button
-// 						aria-controls='simple-menu'
-// 						aria-haspopup='true'
-// 						onClick={handleClick}
-// 						className={`${classes.link} ${classes.item}`}
-// 					>
-// 						<PersonIcon /> Profile
-// 					</Button>
-// 					<Menu
-// 						id='simple-menu'
-// 						anchorEl={anchorEl}
-// 						keepMounted
-// 						open={Boolean(anchorEl)}
-// 						onClose={handleClose}
-// 					>
-// 						<MenuItem onClick={handleClose}>
-// 							<Link to='/demoproblem' className={classes.link}>
-// 								My Lessons
-// 							</Link>
-// 						</MenuItem>
-// 						<MenuItem onClick={handleClose}>
-// 							<Link to='/signin' className={classes.link}>
-// 								My Account
-// 							</Link>
-// 						</MenuItem>
-// 						<MenuItem onClick={handleClose}>
-// 							<Link to='/' className={classes.link}>
-// 								Logout
-// 							</Link>
-// 						</MenuItem>
-// 					</Menu>
-// 				</Box>
-// 			</Link>
-// 		</Box>
-// 	);
-// };
 
 export default Navbar;
