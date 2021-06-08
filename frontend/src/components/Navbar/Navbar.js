@@ -95,7 +95,7 @@ const Navbar = () => {
 							</Link>
 						</MenuItem>
 						<MenuItem onClick={handleClose}>
-							<Link to='/profile' className={classes.link}>
+							<Link to='/profile/snake' className={classes.link}>
 								My Account
 							</Link>
 						</MenuItem>
