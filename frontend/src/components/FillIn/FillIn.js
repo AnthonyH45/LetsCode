@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Container, Grid, Paper, TextField } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core/styles';
@@ -138,7 +138,7 @@ print_square(3) # prints 9
         `,
 		],
 		blanks: ['sum ___ i', '[ ___ for i in', 'print(num ___ ____)'],
-		answers: ['+=', 'i', '** num'],
+		answers: ['+=', 'i', '** 2'],
 	};
 	const correct = () => {
 		new Audio(
@@ -162,7 +162,7 @@ print_square(3) # prints 9
 			correct();
 			return true;
 		}
-		// wrong();
+		wrong();
 		return false;
 	};
 
@@ -172,10 +172,6 @@ print_square(3) # prints 9
 		setUserAnswer(false);
 		setNextQuestion(false);
 	};
-
-	useEffect(() => {
-		checkCorrect();
-	});
 
 	const classes = useStyles();
 
@@ -226,11 +222,15 @@ print_square(3) # prints 9
 										variant='outlined'
 										onChange={(e) => setUserAnswer(e.target.value)}
 									/>
-									{/* <Button onClick={checkCorrect} disabled={nextQuestion}>
-										<span className={`${classes.option} ${classes.submit}`}>
-											
-										</span>
-									</Button> */}
+									{userAnswer !== null ? (
+										<Button onClick={checkCorrect} disabled={nextQuestion}>
+											<span className={`${classes.option} ${classes.submit}`}>
+												Submit
+											</span>
+										</Button>
+									) : (
+										<></>
+									)}
 								</Paper>
 
 								<Button

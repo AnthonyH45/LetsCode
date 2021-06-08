@@ -109,11 +109,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function GuessOutput({ prob }) {
-	const [userAnswer, setUserAnswer] = useState(null);
-	const [isUserCorrect, setIsUserCorrect] = useState(null);
-	const [nextQuestion, setNextQuestion] = useState(null);
-	const [level, setLevel] = useState(0);
-
 	const Prob = {
 		category: 'INTRODUCTION',
 		title: 'For Loops',
@@ -159,13 +154,16 @@ printVar( [1,"HELLO",3.14] )
 		).play();
 	};
 
+	const [userAnswer, setUserAnswer] = useState(null);
+	const [isUserCorrect, setIsUserCorrect] = useState(null);
+	const [nextQuestion, setNextQuestion] = useState(null);
+	const [level, setLevel] = useState(0);
+
 	const selectAnswer = (option) => {
-		console.log('option:', option);
 		setUserAnswer(option);
 	};
 
 	const checkCorrect = () => {
-		console.log('useranswer:', userAnswer);
 		setIsUserCorrect(userAnswer === Prob.answers[level]);
 		if (userAnswer === Prob.answers[level]) {
 			correct();
